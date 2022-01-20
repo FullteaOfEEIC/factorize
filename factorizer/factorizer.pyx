@@ -1,7 +1,6 @@
 import cython
 from libcpp.string cimport string
 import signal
-from Errors import *
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 class BaseClass:
