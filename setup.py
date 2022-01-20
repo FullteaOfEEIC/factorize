@@ -6,8 +6,9 @@ import setuptools
 
 
 ### Compile with Cython begins ###
+sources = glob.glob("factorizer/*.pyx")+glob.glob("factorizer/*.cpp")
 ext = Extension("factorizer", 
-    sources = glob.glob("factorizer/*.pyx")+glob.glob("factorizer/*.cpp"),
+    sources = sources,
     include_dirs = ['./factorizer'],
     language = "c++",
     extra_compile_args = ["-v", "-std=c++11"],
@@ -38,7 +39,7 @@ setuptools.setup(
     url = "https://github.com/FullteaOfEEIC/factorizer",
     packages = setuptools.find_packages(),
     install_requires = install_requires,
-    python_requires = '>=3'
+    python_requires = '>=3.7'
 )
 
 
