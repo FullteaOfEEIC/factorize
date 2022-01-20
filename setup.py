@@ -2,12 +2,11 @@ from distutils.core import setup, Extension
 from tabnanny import verbose
 from Cython.Build import cythonize
 import glob
-import setuptools
 
 
 ### Compile with Cython begins ###
 ext = Extension("factorizer", 
-    sources = glob.glob("factorizer/*.pyx")+glob.glob("actorizer/*.Factorizer_cpp"),
+    sources = glob.glob("factorizer/*.pyx")+glob.glob("factorizer/*.cpp"),
     include_dirs = ['./factorizer'],
     language = "c++",
     extra_compile_args = ["-v", "-std=c++11"],
@@ -22,6 +21,7 @@ setup(
 
 
 
+"""
 ### For downlode through GitHub begins ###
 with open("README.md", "r") as fp:
     long_description = fp.read()
@@ -43,3 +43,4 @@ setuptools.setup(
 
 
 ### For downlode through GitHub ends ###
+"""
