@@ -7,7 +7,7 @@ import setuptools
 
 ### Compile with Cython begins ###
 ext = Extension("factorizer", 
-    sources = glob.glob("factorizer/*.pyx")+glob.glob("factorizer/*.Factorizer_cpp"),
+    sources = glob.glob("src/factorizer/*.pyx")+glob.glob("src/factorizer/*.Factorizer_cpp"),
     include_dirs = ['./factorizer'],
     language = "c++",
     extra_compile_args = ["-v", "-std=c++11"],
@@ -23,8 +23,10 @@ setup(
 
 
 ### For downlode through GitHub begins ###
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+with open("README.md", "r") as fp:
+    long_description = fp.read()
+with open("requirements.txt", "r") as fp:
+    install_requires = fp.read().splitlines()
 
 setuptools.setup(
     name = "factorizer",
@@ -34,8 +36,10 @@ setuptools.setup(
     long_description = long_description,
     long_description_content_type="text/markdown",
     url = "https://github.com/FullteaOfEEIC/factorizer",
-    packages=setuptools.find_packages(),
-    python_requires='>=3'
+    packages = setuptools.find_packages("src"),
+    package_dir = {"":"src"},
+    install_requires = install_requires,
+    python_requires = '>=3'
 )
 
 

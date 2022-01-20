@@ -711,8 +711,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__factorizer
-#define __PYX_HAVE_API__factorizer
+#define __PYX_HAVE__factorizer__factorizer
+#define __PYX_HAVE_API__factorizer__factorizer
 /* Early includes */
 #include <string.h>
 #include <string>
@@ -1318,18 +1318,18 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'factorizer' */
+/* Module declarations from 'factorizer.factorizer' */
 static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_string(std::string const &); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_string(std::string const &); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyStr_string_to_py_std__in_string(std::string const &); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string(std::string const &); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_string(std::string const &); /*proto*/
-#define __Pyx_MODULE_NAME "factorizer"
-extern int __pyx_module_is_main_factorizer;
-int __pyx_module_is_main_factorizer = 0;
+#define __Pyx_MODULE_NAME "factorizer.factorizer"
+extern int __pyx_module_is_main_factorizer__factorizer;
+int __pyx_module_is_main_factorizer__factorizer = 0;
 
-/* Implementation of 'factorizer' */
+/* Implementation of 'factorizer.factorizer' */
 static const char __pyx_k_[] = "*";
 static const char __pyx_k_d[] = "d";
 static const char __pyx_k_n[] = "n";
@@ -1351,7 +1351,6 @@ static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_BaseClass[] = "BaseClass";
 static const char __pyx_k_factorize[] = "_factorize";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_factorizer[] = "factorizer";
 static const char __pyx_k_factorize_2[] = "factorize";
 static const char __pyx_k_BaseClass___init[] = "BaseClass.__init__";
 static const char __pyx_k_FermatFactorizer[] = "FermatFactorizer";
@@ -1359,6 +1358,7 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_BaseClass_factorize[] = "BaseClass.factorize";
 static const char __pyx_k_BaseClass__factorize[] = "BaseClass._factorize";
 static const char __pyx_k_BruteForceFactorizer[] = "BruteForceFactorizer";
+static const char __pyx_k_factorizer_factorizer[] = "factorizer.factorizer";
 static const char __pyx_k_factorizer_factorizer_pyx[] = "factorizer/factorizer.pyx";
 static const char __pyx_k_FermatFactorizer__factorize[] = "FermatFactorizer._factorize";
 static const char __pyx_k_BruteForceFactorizer__factorize[] = "BruteForceFactorizer._factorize";
@@ -1380,7 +1380,7 @@ static PyObject *__pyx_n_s_decode;
 static PyObject *__pyx_n_s_doc;
 static PyObject *__pyx_n_s_factorize;
 static PyObject *__pyx_n_s_factorize_2;
-static PyObject *__pyx_n_s_factorizer;
+static PyObject *__pyx_n_s_factorizer_factorizer;
 static PyObject *__pyx_kp_s_factorizer_factorizer_pyx;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_init;
@@ -1394,11 +1394,11 @@ static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_self;
 static PyObject *__pyx_n_s_signal;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_pf_10factorizer_9BaseClass___init__(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_n); /* proto */
-static PyObject *__pyx_pf_10factorizer_9BaseClass_4_factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_n); /* proto */
-static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n); /* proto */
-static PyObject *__pyx_pf_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n); /* proto */
+static PyObject *__pyx_pf_10factorizer_10factorizer_9BaseClass___init__(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_10factorizer_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_n); /* proto */
+static PyObject *__pyx_pf_10factorizer_10factorizer_9BaseClass_4_factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_n); /* proto */
+static PyObject *__pyx_pf_10factorizer_10factorizer_20BruteForceFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n); /* proto */
+static PyObject *__pyx_pf_10factorizer_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n); /* proto */
 static PyObject *__pyx_tuple__2;
 static PyObject *__pyx_tuple__4;
 static PyObject *__pyx_tuple__6;
@@ -1411,7 +1411,7 @@ static PyObject *__pyx_codeobj__9;
 static PyObject *__pyx_codeobj__11;
 /* Late includes */
 
-/* "factorizer.pyx":9
+/* "factorizer/factorizer.pyx":9
  * class BaseClass:
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -1420,20 +1420,20 @@ static PyObject *__pyx_codeobj__11;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10factorizer_9BaseClass_1__init__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_10factorizer_9BaseClass_1__init__ = {"__init__", (PyCFunction)__pyx_pw_10factorizer_9BaseClass_1__init__, METH_O, 0};
-static PyObject *__pyx_pw_10factorizer_9BaseClass_1__init__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_10factorizer_10factorizer_9BaseClass_1__init__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_10factorizer_10factorizer_9BaseClass_1__init__ = {"__init__", (PyCFunction)__pyx_pw_10factorizer_10factorizer_9BaseClass_1__init__, METH_O, 0};
+static PyObject *__pyx_pw_10factorizer_10factorizer_9BaseClass_1__init__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_10factorizer_9BaseClass___init__(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_10factorizer_10factorizer_9BaseClass___init__(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10factorizer_9BaseClass___init__(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_10factorizer_10factorizer_9BaseClass___init__(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -1445,7 +1445,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass___init__(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "factorizer.pyx":12
+/* "factorizer/factorizer.pyx":12
  *         pass
  * 
  *     def factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1454,9 +1454,9 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass___init__(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10factorizer_9BaseClass_3factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10factorizer_9BaseClass_3factorize = {"factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_9BaseClass_3factorize, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10factorizer_9BaseClass_3factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10factorizer_10factorizer_9BaseClass_3factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_10factorizer_10factorizer_9BaseClass_3factorize = {"factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_10factorizer_9BaseClass_3factorize, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_10factorizer_10factorizer_9BaseClass_3factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_n = 0;
   int __pyx_lineno = 0;
@@ -1507,18 +1507,18 @@ static PyObject *__pyx_pw_10factorizer_9BaseClass_3factorize(PyObject *__pyx_sel
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("factorize", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 12, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("factorizer.BaseClass.factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.BaseClass.factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10factorizer_9BaseClass_2factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
+  __pyx_r = __pyx_pf_10factorizer_10factorizer_9BaseClass_2factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_n) {
+static PyObject *__pyx_pf_10factorizer_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_n) {
   PyObject *__pyx_v_d = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1532,7 +1532,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("factorize", 0);
 
-  /* "factorizer.pyx":13
+  /* "factorizer/factorizer.pyx":13
  * 
  *     def factorize(self, n):
  *         d = self._factorize(str(n).encode())             # <<<<<<<<<<<<<<
@@ -1565,7 +1565,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   __pyx_v_d = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "factorizer.pyx":14
+  /* "factorizer/factorizer.pyx":14
  *     def factorize(self, n):
  *         d = self._factorize(str(n).encode())
  *         d = int(d.decode())             # <<<<<<<<<<<<<<
@@ -1595,7 +1595,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   __Pyx_DECREF_SET(__pyx_v_d, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "factorizer.pyx":15
+  /* "factorizer/factorizer.pyx":15
  *         d = self._factorize(str(n).encode())
  *         d = int(d.decode())
  *         assert d*(n//d) == n             # <<<<<<<<<<<<<<
@@ -1620,7 +1620,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   }
   #endif
 
-  /* "factorizer.pyx":16
+  /* "factorizer/factorizer.pyx":16
  *         d = int(d.decode())
  *         assert d*(n//d) == n
  *         return (d, n//d)             # <<<<<<<<<<<<<<
@@ -1642,7 +1642,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "factorizer.pyx":12
+  /* "factorizer/factorizer.pyx":12
  *         pass
  * 
  *     def factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1656,7 +1656,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("factorizer.BaseClass.factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.BaseClass.factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_d);
@@ -1665,7 +1665,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "factorizer.pyx":18
+/* "factorizer/factorizer.pyx":18
  *         return (d, n//d)
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1674,9 +1674,9 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_2factorize(CYTHON_UNUSED PyObj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10factorizer_9BaseClass_5_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10factorizer_9BaseClass_5_factorize = {"_factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_9BaseClass_5_factorize, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10factorizer_9BaseClass_5_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10factorizer_10factorizer_9BaseClass_5_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_10factorizer_10factorizer_9BaseClass_5_factorize = {"_factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_10factorizer_9BaseClass_5_factorize, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_10factorizer_10factorizer_9BaseClass_5_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED PyObject *__pyx_v_self = 0;
   CYTHON_UNUSED PyObject *__pyx_v_n = 0;
   int __pyx_lineno = 0;
@@ -1727,18 +1727,18 @@ static PyObject *__pyx_pw_10factorizer_9BaseClass_5_factorize(PyObject *__pyx_se
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_factorize", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 18, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("factorizer.BaseClass._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.BaseClass._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10factorizer_9BaseClass_4_factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
+  __pyx_r = __pyx_pf_10factorizer_10factorizer_9BaseClass_4_factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10factorizer_9BaseClass_4_factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_n) {
+static PyObject *__pyx_pf_10factorizer_10factorizer_9BaseClass_4_factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_n) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_factorize", 0);
@@ -1750,7 +1750,7 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_4_factorize(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "factorizer.pyx":23
+/* "factorizer/factorizer.pyx":23
  * class BruteForceFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1759,9 +1759,9 @@ static PyObject *__pyx_pf_10factorizer_9BaseClass_4_factorize(CYTHON_UNUSED PyOb
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10factorizer_20BruteForceFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10factorizer_20BruteForceFactorizer_1_factorize = {"_factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_20BruteForceFactorizer_1_factorize, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10factorizer_20BruteForceFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10factorizer_10factorizer_20BruteForceFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_10factorizer_10factorizer_20BruteForceFactorizer_1_factorize = {"_factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_10factorizer_20BruteForceFactorizer_1_factorize, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_10factorizer_10factorizer_20BruteForceFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_n = 0;
   int __pyx_lineno = 0;
@@ -1812,18 +1812,18 @@ static PyObject *__pyx_pw_10factorizer_20BruteForceFactorizer_1_factorize(PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_factorize", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("factorizer.BruteForceFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.BruteForceFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10factorizer_20BruteForceFactorizer__factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
+  __pyx_r = __pyx_pf_10factorizer_10factorizer_20BruteForceFactorizer__factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n) {
+static PyObject *__pyx_pf_10factorizer_10factorizer_20BruteForceFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n) {
   std::string __pyx_v_d;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1834,7 +1834,7 @@ static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_factorize", 0);
 
-  /* "factorizer.pyx":27
+  /* "factorizer/factorizer.pyx":27
  *             string d
  * 
  *         d = BruteForceFactorizer_cppfunc(n)             # <<<<<<<<<<<<<<
@@ -1844,7 +1844,7 @@ static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_
   __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_n); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 27, __pyx_L1_error)
   __pyx_v_d = BruteForceFactorizer_cppfunc(__pyx_t_1);
 
-  /* "factorizer.pyx":28
+  /* "factorizer/factorizer.pyx":28
  * 
  *         d = BruteForceFactorizer_cppfunc(n)
  *         return d             # <<<<<<<<<<<<<<
@@ -1858,7 +1858,7 @@ static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "factorizer.pyx":23
+  /* "factorizer/factorizer.pyx":23
  * class BruteForceFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1869,7 +1869,7 @@ static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("factorizer.BruteForceFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.BruteForceFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1877,7 +1877,7 @@ static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_
   return __pyx_r;
 }
 
-/* "factorizer.pyx":32
+/* "factorizer/factorizer.pyx":32
  * class FermatFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1886,9 +1886,9 @@ static PyObject *__pyx_pf_10factorizer_20BruteForceFactorizer__factorize(CYTHON_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_10factorizer_16FermatFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_10factorizer_16FermatFactorizer_1_factorize = {"_factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_16FermatFactorizer_1_factorize, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_10factorizer_16FermatFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_10factorizer_10factorizer_16FermatFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_10factorizer_10factorizer_16FermatFactorizer_1_factorize = {"_factorize", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_10factorizer_10factorizer_16FermatFactorizer_1_factorize, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_10factorizer_10factorizer_16FermatFactorizer_1_factorize(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_n = 0;
   int __pyx_lineno = 0;
@@ -1939,18 +1939,18 @@ static PyObject *__pyx_pw_10factorizer_16FermatFactorizer_1_factorize(PyObject *
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_factorize", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 32, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("factorizer.FermatFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.FermatFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_10factorizer_16FermatFactorizer__factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
+  __pyx_r = __pyx_pf_10factorizer_10factorizer_16FermatFactorizer__factorize(__pyx_self, __pyx_v_self, __pyx_v_n);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n) {
+static PyObject *__pyx_pf_10factorizer_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_n) {
   std::string __pyx_v_d;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1961,7 +1961,7 @@ static PyObject *__pyx_pf_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_factorize", 0);
 
-  /* "factorizer.pyx":36
+  /* "factorizer/factorizer.pyx":36
  *             string d
  * 
  *         d = FermatFactorizer_cppfunc(n)             # <<<<<<<<<<<<<<
@@ -1970,7 +1970,7 @@ static PyObject *__pyx_pf_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUS
   __pyx_t_1 = __pyx_convert_string_from_py_std__in_string(__pyx_v_n); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 36, __pyx_L1_error)
   __pyx_v_d = FermatFactorizer_cppfunc(__pyx_t_1);
 
-  /* "factorizer.pyx":37
+  /* "factorizer/factorizer.pyx":37
  * 
  *         d = FermatFactorizer_cppfunc(n)
  *         return d             # <<<<<<<<<<<<<<
@@ -1982,7 +1982,7 @@ static PyObject *__pyx_pf_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUS
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "factorizer.pyx":32
+  /* "factorizer/factorizer.pyx":32
  * class FermatFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -1993,7 +1993,7 @@ static PyObject *__pyx_pf_10factorizer_16FermatFactorizer__factorize(CYTHON_UNUS
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("factorizer.FermatFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("factorizer.factorizer.FermatFactorizer._factorize", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2508,7 +2508,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
   {&__pyx_n_s_factorize, __pyx_k_factorize, sizeof(__pyx_k_factorize), 0, 0, 1, 1},
   {&__pyx_n_s_factorize_2, __pyx_k_factorize_2, sizeof(__pyx_k_factorize_2), 0, 0, 1, 1},
-  {&__pyx_n_s_factorizer, __pyx_k_factorizer, sizeof(__pyx_k_factorizer), 0, 0, 1, 1},
+  {&__pyx_n_s_factorizer_factorizer, __pyx_k_factorizer_factorizer, sizeof(__pyx_k_factorizer_factorizer), 0, 0, 1, 1},
   {&__pyx_kp_s_factorizer_factorizer_pyx, __pyx_k_factorizer_factorizer_pyx, sizeof(__pyx_k_factorizer_factorizer_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
@@ -2532,7 +2532,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "factorizer.pyx":9
+  /* "factorizer/factorizer.pyx":9
  * class BaseClass:
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -2544,7 +2544,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__2);
   __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_factorizer_factorizer_pyx, __pyx_n_s_init, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 9, __pyx_L1_error)
 
-  /* "factorizer.pyx":12
+  /* "factorizer/factorizer.pyx":12
  *         pass
  * 
  *     def factorize(self, n):             # <<<<<<<<<<<<<<
@@ -2556,7 +2556,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__4);
   __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_factorizer_factorizer_pyx, __pyx_n_s_factorize_2, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "factorizer.pyx":18
+  /* "factorizer/factorizer.pyx":18
  *         return (d, n//d)
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -2568,7 +2568,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__6);
   __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_factorizer_factorizer_pyx, __pyx_n_s_factorize, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 18, __pyx_L1_error)
 
-  /* "factorizer.pyx":23
+  /* "factorizer/factorizer.pyx":23
  * class BruteForceFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -2580,7 +2580,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__8);
   __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_factorizer_factorizer_pyx, __pyx_n_s_factorize, 23, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 23, __pyx_L1_error)
 
-  /* "factorizer.pyx":32
+  /* "factorizer/factorizer.pyx":32
  * class FermatFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
@@ -2844,14 +2844,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_factorizer) {
+  if (__pyx_module_is_main_factorizer__factorizer) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "factorizer")) {
-      if (unlikely(PyDict_SetItemString(modules, "factorizer", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "factorizer.factorizer")) {
+      if (unlikely(PyDict_SetItemString(modules, "factorizer.factorizer", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2872,7 +2872,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "factorizer.pyx":3
+  /* "factorizer/factorizer.pyx":3
  * import cython
  * from libcpp.string cimport string
  * import signal             # <<<<<<<<<<<<<<
@@ -2884,7 +2884,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_signal, __pyx_t_1) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "factorizer.pyx":4
+  /* "factorizer/factorizer.pyx":4
  * from libcpp.string cimport string
  * import signal
  * from Errors import *             # <<<<<<<<<<<<<<
@@ -2902,7 +2902,7 @@ if (!__Pyx_RefNanny) {
   if (__pyx_import_star(__pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "factorizer.pyx":5
+  /* "factorizer/factorizer.pyx":5
  * import signal
  * from Errors import *
  * signal.signal(signal.SIGINT, signal.SIG_DFL)             # <<<<<<<<<<<<<<
@@ -2938,53 +2938,53 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "factorizer.pyx":7
+  /* "factorizer/factorizer.pyx":7
  * signal.signal(signal.SIGINT, signal.SIG_DFL)
  * 
  * class BaseClass:             # <<<<<<<<<<<<<<
  * 
  *     def __init__(self):
  */
-  __pyx_t_4 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_BaseClass, __pyx_n_s_BaseClass, (PyObject *) NULL, __pyx_n_s_factorizer, (PyObject *) NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_BaseClass, __pyx_n_s_BaseClass, (PyObject *) NULL, __pyx_n_s_factorizer_factorizer, (PyObject *) NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "factorizer.pyx":9
+  /* "factorizer/factorizer.pyx":9
  * class BaseClass:
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
  *         pass
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_9BaseClass_1__init__, 0, __pyx_n_s_BaseClass___init, NULL, __pyx_n_s_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_10factorizer_9BaseClass_1__init__, 0, __pyx_n_s_BaseClass___init, NULL, __pyx_n_s_factorizer_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_init, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "factorizer.pyx":12
+  /* "factorizer/factorizer.pyx":12
  *         pass
  * 
  *     def factorize(self, n):             # <<<<<<<<<<<<<<
  *         d = self._factorize(str(n).encode())
  *         d = int(d.decode())
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_9BaseClass_3factorize, 0, __pyx_n_s_BaseClass_factorize, NULL, __pyx_n_s_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_10factorizer_9BaseClass_3factorize, 0, __pyx_n_s_BaseClass_factorize, NULL, __pyx_n_s_factorizer_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_factorize_2, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "factorizer.pyx":18
+  /* "factorizer/factorizer.pyx":18
  *         return (d, n//d)
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
  *         pass
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_9BaseClass_5_factorize, 0, __pyx_n_s_BaseClass__factorize, NULL, __pyx_n_s_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_10factorizer_9BaseClass_5_factorize, 0, __pyx_n_s_BaseClass__factorize, NULL, __pyx_n_s_factorizer_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_factorize, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "factorizer.pyx":7
+  /* "factorizer/factorizer.pyx":7
  * signal.signal(signal.SIGINT, signal.SIG_DFL)
  * 
  * class BaseClass:             # <<<<<<<<<<<<<<
@@ -2997,7 +2997,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "factorizer.pyx":21
+  /* "factorizer/factorizer.pyx":21
  *         pass
  * 
  * class BruteForceFactorizer(BaseClass):             # <<<<<<<<<<<<<<
@@ -3013,22 +3013,22 @@ if (!__Pyx_RefNanny) {
   __pyx_t_4 = 0;
   __pyx_t_4 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare(__pyx_t_4, __pyx_t_2, __pyx_n_s_BruteForceFactorizer, __pyx_n_s_BruteForceFactorizer, (PyObject *) NULL, __pyx_n_s_factorizer, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare(__pyx_t_4, __pyx_t_2, __pyx_n_s_BruteForceFactorizer, __pyx_n_s_BruteForceFactorizer, (PyObject *) NULL, __pyx_n_s_factorizer_factorizer, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "factorizer.pyx":23
+  /* "factorizer/factorizer.pyx":23
  * class BruteForceFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
  *         cdef:
  *             string d
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_20BruteForceFactorizer_1_factorize, 0, __pyx_n_s_BruteForceFactorizer__factorize, NULL, __pyx_n_s_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_10factorizer_20BruteForceFactorizer_1_factorize, 0, __pyx_n_s_BruteForceFactorizer__factorize, NULL, __pyx_n_s_factorizer_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_factorize, __pyx_t_3) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "factorizer.pyx":21
+  /* "factorizer/factorizer.pyx":21
  *         pass
  * 
  * class BruteForceFactorizer(BaseClass):             # <<<<<<<<<<<<<<
@@ -3043,7 +3043,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "factorizer.pyx":30
+  /* "factorizer/factorizer.pyx":30
  *         return d
  * 
  * class FermatFactorizer(BaseClass):             # <<<<<<<<<<<<<<
@@ -3059,22 +3059,22 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_4, __pyx_n_s_FermatFactorizer, __pyx_n_s_FermatFactorizer, (PyObject *) NULL, __pyx_n_s_factorizer, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_4, __pyx_n_s_FermatFactorizer, __pyx_n_s_FermatFactorizer, (PyObject *) NULL, __pyx_n_s_factorizer_factorizer, (PyObject *) NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "factorizer.pyx":32
+  /* "factorizer/factorizer.pyx":32
  * class FermatFactorizer(BaseClass):
  * 
  *     def _factorize(self, n):             # <<<<<<<<<<<<<<
  *         cdef:
  *             string d
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_16FermatFactorizer_1_factorize, 0, __pyx_n_s_FermatFactorizer__factorize, NULL, __pyx_n_s_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_10factorizer_10factorizer_16FermatFactorizer_1_factorize, 0, __pyx_n_s_FermatFactorizer__factorize, NULL, __pyx_n_s_factorizer_factorizer, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (__Pyx_SetNameInClass(__pyx_t_1, __pyx_n_s_factorize, __pyx_t_3) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "factorizer.pyx":30
+  /* "factorizer/factorizer.pyx":30
  *         return d
  * 
  * class FermatFactorizer(BaseClass):             # <<<<<<<<<<<<<<
@@ -3089,7 +3089,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "factorizer.pyx":1
+  /* "factorizer/factorizer.pyx":1
  * import cython             # <<<<<<<<<<<<<<
  * from libcpp.string cimport string
  * import signal
@@ -3117,11 +3117,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_4);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init factorizer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init factorizer.factorizer", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init factorizer");
+    PyErr_SetString(PyExc_ImportError, "init factorizer.factorizer");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
