@@ -17,10 +17,7 @@
         "name": "factorizer",
         "sources": [
             "factorizer/Errors.pyx",
-            "factorizer/factorizer.pyx",
-            "factorizer/utils.cpp",
-            "factorizer/FermatFactorizer_cpp.cpp",
-            "factorizer/BruteForceFactorizer_cpp.cpp"
+            "factorizer/factorizer.pyx"
         ]
     },
     "module_name": "factorizer"
@@ -714,8 +711,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__Errors
-#define __PYX_HAVE_API__Errors
+#define __PYX_HAVE__factorizer__Errors
+#define __PYX_HAVE_API__factorizer__Errors
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1124,12 +1121,12 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'Errors' */
-#define __Pyx_MODULE_NAME "Errors"
-extern int __pyx_module_is_main_Errors;
-int __pyx_module_is_main_Errors = 0;
+/* Module declarations from 'factorizer.Errors' */
+#define __Pyx_MODULE_NAME "factorizer.Errors"
+extern int __pyx_module_is_main_factorizer__Errors;
+int __pyx_module_is_main_factorizer__Errors = 0;
 
-/* Implementation of 'Errors' */
+/* Implementation of 'factorizer.Errors' */
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
@@ -1446,14 +1443,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_Errors) {
+  if (__pyx_module_is_main_factorizer__Errors) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "Errors")) {
-      if (unlikely(PyDict_SetItemString(modules, "Errors", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "factorizer.Errors")) {
+      if (unlikely(PyDict_SetItemString(modules, "factorizer.Errors", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -1474,7 +1471,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "Errors.pyx":1
+  /* "factorizer/Errors.pyx":1
              # <<<<<<<<<<<<<<
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -1489,11 +1486,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init Errors", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init factorizer.Errors", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init Errors");
+    PyErr_SetString(PyExc_ImportError, "init factorizer.Errors");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

@@ -7,7 +7,7 @@ import setuptools
 
 ### Compile with Cython begins ###
 ext = Extension("factorizer", 
-    sources = glob.glob("src/factorizer/*.pyx")+glob.glob("src/factorizer/*.Factorizer_cpp"),
+    sources = glob.glob("factorizer/*.pyx")+glob.glob("actorizer/*.Factorizer_cpp"),
     include_dirs = ['./factorizer'],
     language = "c++",
     extra_compile_args = ["-v", "-std=c++11"],
