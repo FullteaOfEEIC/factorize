@@ -2,6 +2,7 @@ from distutils.core import setup, Extension
 from tabnanny import verbose
 from Cython.Build import cythonize
 import glob
+import setuptools
 
 
 ### Compile with Cython begins ###
@@ -21,7 +22,6 @@ setup(
 
 
 
-"""
 ### For downlode through GitHub begins ###
 with open("README.md", "r") as fp:
     long_description = fp.read()
@@ -43,4 +43,3 @@ setuptools.setup(
 
 
 ### For downlode through GitHub ends ###
-"""
