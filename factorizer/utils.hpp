@@ -3,3 +3,5 @@
 using Bint = boost::multiprecision::cpp_int;
 
 Bint isqrt(Bint n);
+
+Bint euclidean_gcd(Bint a, Bint b);

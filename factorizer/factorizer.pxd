@@ -5,3 +5,6 @@ cdef extern from "BruteForceFactorizer_cpp.hpp":
 
 cdef extern from "FermatFactorizer_cpp.hpp":
     string FermatFactorizer_cppfunc(string s)
+
+cdef extern from "PollardsRhoFactorizer_cpp.hpp":
+    string PollardsRhoFactorizer_cppfunc(string s)
