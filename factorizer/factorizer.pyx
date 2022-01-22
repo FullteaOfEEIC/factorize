@@ -5,7 +5,9 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 class BaseClass:
 
-    def __init__(self):
+    def __init__(self, timeout=None):
+        self.DETERMINISTIC = None
+        self.timeout = timeout # TODO: making timeout
         pass
     
     def factorize(self, n):
@@ -19,6 +21,10 @@ class BaseClass:
 
 class BruteForceFactorizer(BaseClass):
 
+    def __init__(self):
+        super().__init__()
+        self.DETERMINISTIC = True
+
     def _factorize(self, n):
         cdef:
             string d
@@ -28,9 +34,27 @@ class BruteForceFactorizer(BaseClass):
     
 class FermatFactorizer(BaseClass):
 
+    def __init__(self):
+        super().__init__()
+        self.DETERMINISTIC = True
+
     def _factorize(self, n):
         cdef:
             string d
         
         d = FermatFactorizer_cppfunc(n)
+        return d
+
+
+class PollardsRhoFactorizer(BaseClass):
+
+    def __init__(self):
+        super().__init__()
+        self.DETERMINISTIC = False
+
+    def _factorize(self, n):
+        cdef:
+            string d
+        
+        d = PollardsRhoFactorizer_cppfunc(n)
         return d
