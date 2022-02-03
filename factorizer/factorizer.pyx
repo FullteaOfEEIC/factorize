@@ -10,13 +10,14 @@ class BaseClass:
         self.timeout = timeout # TODO: making timeout
         pass
     
-    def factorize(self, n):
-        d = self._factorize(str(n).encode())
+    def factorize(self, n, *args, **kwargs):
+        assert self.DETERMINISTIC is not None
+        d = self._factorize(n=str(n).encode(), args=args, kwargs=kwargs)
         d = int(d.decode())
         assert d*(n//d) == n
         return (d, n//d)
     
-    def _factorize(self, n):
+    def _factorize(self, n, *args, **kwargs):
         pass
 
 class BruteForceFactorizer(BaseClass):
@@ -25,10 +26,9 @@ class BruteForceFactorizer(BaseClass):
         super().__init__()
         self.DETERMINISTIC = True
 
-    def _factorize(self, n):
+    def _factorize(self, n, *args, **kwargs):
         cdef:
             string d
-        
         d = BruteForceFactorizer_cppfunc(n)
         return d
     
@@ -38,7 +38,7 @@ class FermatFactorizer(BaseClass):
         super().__init__()
         self.DETERMINISTIC = True
 
-    def _factorize(self, n):
+    def _factorize(self, n, *args, **kwargs):
         cdef:
             string d
         
@@ -48,13 +48,36 @@ class FermatFactorizer(BaseClass):
 
 class PollardsRhoFactorizer(BaseClass):
 
+    def __init__(self, c=1):
+        super().__init__()
+        self.DETERMINISTIC = False
+        self.c = c
+
+    def _factorize(self, n, *args, **kwargs):
+        cdef:
+            string d
+        
+        d = PollardsRhoFactorizer_cppfunc(n, self.c)
+        return d
+
+
+class RSAPrivateKeyFactorizer(BaseClass):
+
     def __init__(self):
         super().__init__()
         self.DETERMINISTIC = False
 
-    def _factorize(self, n):
+    def factorize(self, n, d, e=65537, *args, **kwargs):
+        kwargs["d"] = d
+        kwargs["e"] = e
+        return super().factorize(n=n,args=args,kwargs=kwargs)
+
+    def _factorize(self, n, *args, **kwargs):
+        d = kwargs["kwargs"]["kwargs"]["d"]
+        e = kwargs["kwargs"]["kwargs"]["e"]
+        d = str(d).encode()
+        e = str(e).encode()
         cdef:
-            string d
-        
-        d = PollardsRhoFactorizer_cppfunc(n)
-        return d
+            string p
+        p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
+        return p

@@ -4,32 +4,33 @@
 using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
-Bint f(Bint *x, Bint *n);
+Bint f(Bint *x, Bint *c, Bint *n);
 struct LinkedList{
     Bint value;
     LinkedList *after;
 }typedef LinkedList;
 
 
-string PollardsRhoFactorizer_cppfunc(string s){
+string PollardsRhoFactorizer_cppfunc(string s, long c_){
     Bint n(s);
-    
+    Bint c(c_);
     LinkedList z1, z2;
     LinkedList *x = new LinkedList;
     LinkedList *y = new LinkedList;
     x->value = 2;
-    y->value = f(&(x->value), &n);
+    y->value = f(&(x->value), &c, &n);
     x->after = y;
 
     Bint d = euclidean_gcd(abs(x->value-y->value), n);
     Bint i=1;
+
     while(d==1){
         LinkedList *z1 = new LinkedList;
         LinkedList *z2 = new LinkedList;
         y->after = z1;
         z1->after = z2;
-        z1->value = f(&(y->value), &n);
-        z2->value = f(&(z1->value), &n);
+        z1->value = f(&(y->value), &c, &n);
+        z2->value = f(&(z1->value), &c, &n);
         y = z2;
         LinkedList *tmp = x;
         x = x->after;
@@ -47,6 +48,6 @@ string PollardsRhoFactorizer_cppfunc(string s){
     }
 }
 
-Bint f(Bint *x, Bint *n){
-    return (boost::multiprecision::pow(*x,(unsigned)2)+1)%(*n);
+Bint f(Bint *x, Bint *c, Bint *n){
+    return (boost::multiprecision::pow(*x,(unsigned)2)+*c)%(*n);
 }
