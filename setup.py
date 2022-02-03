@@ -42,5 +42,4 @@ setuptools.setup(
     python_requires = '>=3.7'
 )
 
-
 ### For downlode through GitHub ends ###
