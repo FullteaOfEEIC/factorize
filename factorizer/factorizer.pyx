@@ -4,6 +4,10 @@ import signal
 import timeout_decorator
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
+class TimeOutError(Exception):
+    pass
+
+
 class BaseClass:
 
     def __init__(self, timeout=None):
@@ -13,7 +17,7 @@ class BaseClass:
     def factorize(self, n, *args, **kwargs):
         assert self.DETERMINISTIC is not None
         if self.timeout:
-            _factorize = timeout_decorator.timeout(self.timeout, use_signals=False)(self._factorize)
+            _factorize = timeout_decorator.timeout(self.timeout, use_signals=False, timeout_exception=TimeOutError)(self._factorize)
         else:
             _factorize = self._factorize
         d = _factorize(n=str(n).encode(), args=args, kwargs=kwargs)
@@ -23,6 +27,7 @@ class BaseClass:
     
     def _factorize(self, n, *args, **kwargs):
         pass
+
 
 class BruteForceFactorizer(BaseClass):
 
@@ -35,7 +40,8 @@ class BruteForceFactorizer(BaseClass):
             string d
         d = BruteForceFactorizer_cppfunc(n)
         return d
-    
+
+
 class FermatFactorizer(BaseClass):
 
     def __init__(self, timeout=None):
@@ -74,7 +80,7 @@ class RSAPrivateKeyFactorizer(BaseClass):
     def factorize(self, n, d, e=65537, *args, **kwargs):
         kwargs["d"] = d
         kwargs["e"] = e
-        return super().factorize(n=n,args=args,kwargs=kwargs["kwargs"])
+        return super().factorize(n=n, args=args, kwargs=kwargs["kwargs"])
 
     def _factorize(self, n, *args, **kwargs):
         d = kwargs["kwargs"]["d"]
