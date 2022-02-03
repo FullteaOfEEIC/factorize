@@ -26,8 +26,8 @@ class BaseClass:
 
 class BruteForceFactorizer(BaseClass):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, timeout=None):
+        super().__init__(timeout)
         self.DETERMINISTIC = True
 
     def _factorize(self, n, *args, **kwargs):
@@ -38,8 +38,8 @@ class BruteForceFactorizer(BaseClass):
     
 class FermatFactorizer(BaseClass):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, timeout=None):
+        super().__init__(timeout)
         self.DETERMINISTIC = True
 
     def _factorize(self, n, *args, **kwargs):
@@ -52,8 +52,8 @@ class FermatFactorizer(BaseClass):
 
 class PollardsRhoFactorizer(BaseClass):
 
-    def __init__(self, c=1):
-        super().__init__()
+    def __init__(self, c=1, timeout=None):
+        super().__init__(timeout)
         self.DETERMINISTIC = False
         self.c = c
 
@@ -67,18 +67,18 @@ class PollardsRhoFactorizer(BaseClass):
 
 class RSAPrivateKeyFactorizer(BaseClass):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, timeout=None):
+        super().__init__(timeout)
         self.DETERMINISTIC = False
 
     def factorize(self, n, d, e=65537, *args, **kwargs):
         kwargs["d"] = d
         kwargs["e"] = e
-        return super().factorize(n=n,args=args,kwargs=kwargs)
+        return super().factorize(n=n,args=args,kwargs=kwargs["kwargs"])
 
     def _factorize(self, n, *args, **kwargs):
-        d = kwargs["kwargs"]["kwargs"]["d"]
-        e = kwargs["kwargs"]["kwargs"]["e"]
+        d = kwargs["kwargs"]["d"]
+        e = kwargs["kwargs"]["e"]
         d = str(d).encode()
         e = str(e).encode()
         cdef:
