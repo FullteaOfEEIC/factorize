@@ -1,18 +1,22 @@
 import cython
 from libcpp.string cimport string
 import signal
+import timeout_decorator
 signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 class BaseClass:
 
     def __init__(self, timeout=None):
         self.DETERMINISTIC = None
-        self.timeout = timeout # TODO: making timeout
+        self.timeout = timeout
         pass
-    
     def factorize(self, n, *args, **kwargs):
         assert self.DETERMINISTIC is not None
-        d = self._factorize(n=str(n).encode(), args=args, kwargs=kwargs)
+        if self.timeout:
+            _factorize = timeout_decorator.timeout(self.timeout, use_signals=False)(self._factorize)
+        else:
+            _factorize = self._factorize
+        d = _factorize(n=str(n).encode(), args=args, kwargs=kwargs)
         d = int(d.decode())
         assert d*(n//d) == n
         return (d, n//d)
