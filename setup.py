@@ -7,6 +7,7 @@ import glob
 sources = glob.glob("factorizer/*.pyx")+glob.glob("factorizer/*.cpp")
 if "factorizer.cpp" in sources:
     sources.remove("factorizer.cpp")
+    
 ext = Extension("factorizer", 
     sources = sources,
     language = "c++",
@@ -35,4 +36,5 @@ setup(
 
 if os.path.exists(os.path.join("factorizer", "factorizer.cpp")):
     os.remove(os.path.join("factorizer", "factorizer.cpp"))
+
 
