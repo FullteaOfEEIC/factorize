@@ -2,7 +2,9 @@ import cython
 from libcpp.string cimport string
 import signal
 import timeout_decorator
-signal.signal(signal.SIGINT, signal.SIG_DFL)
+import requests
+from requests.exceptions import Timeout
+
 
 class TimeOutError(Exception):
     pass
@@ -13,7 +15,7 @@ class BaseClass:
     def __init__(self, timeout=None):
         self.DETERMINISTIC = None
         self.timeout = timeout
-        pass
+        
     def factorize(self, n, *args, **kwargs):
         assert self.DETERMINISTIC is not None
         if self.timeout:
@@ -91,3 +93,43 @@ class RSAPrivateKeyFactorizer(BaseClass):
             string p
         p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
         return p
+
+
+
+class FactorDBFactorizer(BaseClass):
+    
+    def __init__(self, timeout=None):
+        super().__init__(timeout)
+        self.DETERMINISTIC = False
+        self.ENDPOINT = "http://factordb.com/api"
+
+    
+    def _factorize(self, n):
+        payload = {"query": n}
+        
+        try:
+            r = requests.get(self.ENDPOINT, params=payload, timeout=self.timeout)
+        except Timeout:
+            raise TimeOutError
+        except Exception as e:
+            raise e
+        return r.json()
+
+    def factorize(self, n, raw_result=False):
+        result = self._factorize(n)["factors"]
+        if raw_result:
+            return result
+        
+        if len(result)==1 and result[0][1]==1:
+            return (1,n)
+        else:
+            d = int(result[0][0])
+            assert d*(n//d) == n
+            return (d, n//d)
+        
+        
+
+        
+
+
+

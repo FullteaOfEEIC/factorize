@@ -1,4 +1,4 @@
-# factorize
+# factorizer
 
 This is a simple factorization tool.
 
@@ -79,3 +79,4 @@ SIP... Sorry!
 ### FermatFactorizer
 ### PollardsRhoFactorizer
 ### RSAPrivateKeyFactorizer
+### FactorDBFactorizer
