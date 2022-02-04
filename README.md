@@ -23,7 +23,7 @@ divider.factorize(57) # Devide number in order, starting with 2, 3, 4, 5...
  ## Install
  You can just use pip to install
  ```
-pip install git+https://github.com/FullteaOfEEIC/factorizer.git
+pip install factorizer
  ```
  
  # Usage
