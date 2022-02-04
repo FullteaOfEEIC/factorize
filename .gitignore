@@ -3,3 +3,5 @@ build
 *.pyc
 *.so
 src/factorizer.cpp
+
+.pypirc
