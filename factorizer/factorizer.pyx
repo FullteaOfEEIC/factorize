@@ -3,7 +3,11 @@ from libcpp.string cimport string
 import signal
 import timeout_decorator
 import requests
-from requests.exceptions import Timeout
+from requests.exceptions import Timeout as requestsTimeoutError
+import threading
+import time
+from datetime import datetime
+from joblib import Parallel
 
 
 class TimeOutError(Exception):
@@ -15,20 +19,38 @@ class BaseClass:
     def __init__(self, timeout=None):
         self.DETERMINISTIC = None
         self.timeout = timeout
+        self.result = {}
         
     def factorize(self, n, *args, **kwargs):
         assert self.DETERMINISTIC is not None
-        if self.timeout:
-            _factorize = timeout_decorator.timeout(self.timeout, use_signals=False, timeout_exception=TimeOutError)(self._factorize)
+        args = (str(n).encode(),)+args
+        thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize")
+        st = datetime.now()
+        thread_factorize.start()
+        ft=datetime.now()
+        print(ft-st)
+        for i in range(self.timeout*100):
+            if thread_factorize.is_alive() == False:
+                break
+            time.sleep(0.01)
+            print(i)
         else:
-            _factorize = self._factorize
-        d = _factorize(n=str(n).encode(), args=args, kwargs=kwargs)
+            raise TimeOutError
+
+
+        d = self.result[str(n).encode()]
         d = int(d.decode())
         assert d*(n//d) == n
         return (d, n//d)
+
+    
+    def factorize_wrap(self, n, *args, **kwargs):
+        d = self._factorize(n=n, args=args, kwargs=kwargs)
+        self.result[n] = d
+
     
     def _factorize(self, n, *args, **kwargs):
-        pass
+        return b"1"
 
 
 class BruteForceFactorizer(BaseClass):
@@ -109,7 +131,7 @@ class FactorDBFactorizer(BaseClass):
         
         try:
             r = requests.get(self.ENDPOINT, params=payload, timeout=self.timeout)
-        except Timeout:
+        except requestsTimeoutError:
             raise TimeOutError
         except Exception as e:
             raise e
@@ -127,9 +149,7 @@ class FactorDBFactorizer(BaseClass):
             assert d*(n//d) == n
             return (d, n//d)
         
-        
 
-        
 
 
 
