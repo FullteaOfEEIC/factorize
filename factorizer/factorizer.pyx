@@ -1,12 +1,9 @@
 import cython
 from libcpp.string cimport string
-import signal
 import requests
 from requests.exceptions import Timeout as requestsTimeoutError
 import threading
 import time
-from datetime import datetime
-from joblib import Parallel
 
 
 class TimeOutError(Exception):
