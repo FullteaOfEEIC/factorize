@@ -1,9 +1,12 @@
 import cython
 from libcpp.string cimport string
 import signal
-import timeout_decorator
 import requests
-from requests.exceptions import Timeout
+from requests.exceptions import Timeout as requestsTimeoutError
+import threading
+import time
+from datetime import datetime
+from joblib import Parallel
 
 
 class TimeOutError(Exception):
@@ -16,20 +19,34 @@ class BaseClass:
     def __init__(self, timeout=None):
         self.DETERMINISTIC = None
         self.timeout = timeout
+        self.result = {}
         
     def factorize(self, n, *args, **kwargs):
         assert self.DETERMINISTIC is not None
-        if self.timeout:
-            _factorize = timeout_decorator.timeout(self.timeout, use_signals=False, timeout_exception=TimeOutError)(self._factorize)
+        args = (str(n).encode(),)+args
+        thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize")
+        thread_factorize.start()
+        for i in range(self.timeout*100):
+            if thread_factorize.is_alive() == False:
+                break
+            time.sleep(0.01)
         else:
-            _factorize = self._factorize
-        d = _factorize(n=str(n).encode(), args=args, kwargs=kwargs)
+            raise TimeOutError
+
+
+        d = self.result[str(n).encode()]
         d = int(d.decode())
         assert d*(n//d) == n
         return (d, n//d)
+
     
-    def _factorize(self, n, *args, **kwargs):
-        pass
+    def factorize_wrap(self, n, *args, **kwargs):
+        d = self._factorize(n=n, args=args, kwargs=kwargs)
+        self.result[n] = d
+
+    
+    def _factorize(self, string n, *args, **kwargs):
+        return b"1"
 
 
 class BruteForceFactorizer(BaseClass):
@@ -38,10 +55,11 @@ class BruteForceFactorizer(BaseClass):
         super().__init__(timeout)
         self.DETERMINISTIC = True
 
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
             string d
-        d = BruteForceFactorizer_cppfunc(n)
+        with nogil:
+            d = BruteForceFactorizer_cppfunc(n)
         return d
 
 
@@ -51,11 +69,11 @@ class FermatFactorizer(BaseClass):
         super().__init__(timeout)
         self.DETERMINISTIC = True
 
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
             string d
-        
-        d = FermatFactorizer_cppfunc(n)
+        with nogil:
+            d = FermatFactorizer_cppfunc(n)
         return d
 
 
@@ -66,11 +84,13 @@ class PollardsRhoFactorizer(BaseClass):
         self.DETERMINISTIC = False
         self.c = c
 
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
             string d
-        
-        d = PollardsRhoFactorizer_cppfunc(n, self.c)
+            long c
+        c = self.c
+        with nogil:
+            d = PollardsRhoFactorizer_cppfunc(n, c)
         return d
 
 
@@ -85,14 +105,13 @@ class RSAPrivateKeyFactorizer(BaseClass):
         kwargs["e"] = e
         return super().factorize(n=n, args=args, kwargs=kwargs)
 
-    def _factorize(self, n, *args, **kwargs):
-        d = kwargs["kwargs"]["kwargs"]["d"]
-        e = kwargs["kwargs"]["kwargs"]["e"]
-        d = str(d).encode()
-        e = str(e).encode()
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
-            string p
-        p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
+            string p, d, e
+        d = str(kwargs["kwargs"]["kwargs"]["d"]).encode()
+        e = str(kwargs["kwargs"]["kwargs"]["e"]).encode()
+        with nogil:
+            p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
         return p
 
 
@@ -111,7 +130,7 @@ class FactorDBFactorizer(BaseClass):
         try:
             r = requests.get(self.ENDPOINT, params=payload, timeout=self.timeout)
             return r.json()
-        except Timeout:
+        except requestsTimeoutError:
             raise TimeOutError
         except Exception as e:
             raise e
@@ -128,9 +147,7 @@ class FactorDBFactorizer(BaseClass):
             assert d*(n//d) == n
             return (d, n//d)
         
-        
 
-        
 
 
 
