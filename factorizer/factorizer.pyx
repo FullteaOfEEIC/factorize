@@ -25,15 +25,11 @@ class BaseClass:
         assert self.DETERMINISTIC is not None
         args = (str(n).encode(),)+args
         thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize")
-        st = datetime.now()
         thread_factorize.start()
-        ft=datetime.now()
-        print(ft-st)
         for i in range(self.timeout*100):
             if thread_factorize.is_alive() == False:
                 break
             time.sleep(0.01)
-            print(i)
         else:
             raise TimeOutError
 
@@ -49,7 +45,7 @@ class BaseClass:
         self.result[n] = d
 
     
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         return b"1"
 
 
@@ -59,10 +55,11 @@ class BruteForceFactorizer(BaseClass):
         super().__init__(timeout)
         self.DETERMINISTIC = True
 
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
             string d
-        d = BruteForceFactorizer_cppfunc(n)
+        with nogil:
+            d = BruteForceFactorizer_cppfunc(n)
         return d
 
 
@@ -72,11 +69,11 @@ class FermatFactorizer(BaseClass):
         super().__init__(timeout)
         self.DETERMINISTIC = True
 
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
             string d
-        
-        d = FermatFactorizer_cppfunc(n)
+        with nogil:
+            d = FermatFactorizer_cppfunc(n)
         return d
 
 
@@ -87,11 +84,13 @@ class PollardsRhoFactorizer(BaseClass):
         self.DETERMINISTIC = False
         self.c = c
 
-    def _factorize(self, n, *args, **kwargs):
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
             string d
-        
-        d = PollardsRhoFactorizer_cppfunc(n, self.c)
+            long c
+        c = self.c
+        with nogil:
+            d = PollardsRhoFactorizer_cppfunc(n, c)
         return d
 
 
@@ -106,14 +105,13 @@ class RSAPrivateKeyFactorizer(BaseClass):
         kwargs["e"] = e
         return super().factorize(n=n, args=args, kwargs=kwargs["kwargs"])
 
-    def _factorize(self, n, *args, **kwargs):
-        d = kwargs["kwargs"]["d"]
-        e = kwargs["kwargs"]["e"]
-        d = str(d).encode()
-        e = str(e).encode()
+    def _factorize(self, string n, *args, **kwargs):
         cdef:
-            string p
-        p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
+            string p, d, e
+        d = str(kwargs["kwargs"]["d"]).encode()
+        e = str(kwargs["kwargs"]["e"]).encode()
+        with nogil:
+            p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
         return p
 
 
