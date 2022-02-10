@@ -11,8 +11,8 @@ if "factorizer.cpp" in sources:
 ext = Extension("factorizer", 
     sources = sources,
     language = "c++",
-    extra_compile_args = ["-v", "-std=c++11", "-Wall"],
-    extra_link_args = ["-std=c++11"]
+    extra_compile_args = ["-v", "-std=c++14", "-Wall"],
+    extra_link_args = ["-std=c++14"]
 )
 
 with open("README.md", "r") as fp:

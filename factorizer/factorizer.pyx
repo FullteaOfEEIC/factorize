@@ -10,6 +10,7 @@ class TimeOutError(Exception):
     pass
 
 
+
 class BaseClass:
 
     def __init__(self, timeout=None):
@@ -82,11 +83,11 @@ class RSAPrivateKeyFactorizer(BaseClass):
     def factorize(self, n, d, e=65537, *args, **kwargs):
         kwargs["d"] = d
         kwargs["e"] = e
-        return super().factorize(n=n, args=args, kwargs=kwargs["kwargs"])
+        return super().factorize(n=n, args=args, kwargs=kwargs)
 
     def _factorize(self, n, *args, **kwargs):
-        d = kwargs["kwargs"]["d"]
-        e = kwargs["kwargs"]["e"]
+        d = kwargs["kwargs"]["kwargs"]["d"]
+        e = kwargs["kwargs"]["kwargs"]["e"]
         d = str(d).encode()
         e = str(e).encode()
         cdef:
@@ -109,11 +110,11 @@ class FactorDBFactorizer(BaseClass):
         
         try:
             r = requests.get(self.ENDPOINT, params=payload, timeout=self.timeout)
+            return r.json()
         except Timeout:
             raise TimeOutError
         except Exception as e:
             raise e
-        return r.json()
 
     def factorize(self, n, raw_result=False):
         result = self._factorize(n)["factors"]
