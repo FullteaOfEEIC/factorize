@@ -23,12 +23,15 @@ class BaseClass:
         args = (str(n).encode(),)+args
         thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize")
         thread_factorize.start()
-        for i in range(self.timeout*100):
-            if thread_factorize.is_alive() == False:
-                break
-            time.sleep(0.01)
+        if self.timeout is not None:
+            for i in range(self.timeout*100):
+                if thread_factorize.is_alive() == False:
+                    break
+                time.sleep(0.01)
+            else:
+                raise TimeOutError
         else:
-            raise TimeOutError
+            thread_factorize.join()
 
 
         d = self.result[str(n).encode()]
