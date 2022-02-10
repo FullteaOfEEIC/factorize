@@ -1,7 +1,6 @@
 import cython
 from libcpp.string cimport string
 import signal
-import timeout_decorator
 import requests
 from requests.exceptions import Timeout as requestsTimeoutError
 import threading
@@ -103,13 +102,13 @@ class RSAPrivateKeyFactorizer(BaseClass):
     def factorize(self, n, d, e=65537, *args, **kwargs):
         kwargs["d"] = d
         kwargs["e"] = e
-        return super().factorize(n=n, args=args, kwargs=kwargs["kwargs"])
+        return super().factorize(n=n, args=args, kwargs=kwargs)
 
     def _factorize(self, string n, *args, **kwargs):
         cdef:
             string p, d, e
-        d = str(kwargs["kwargs"]["d"]).encode()
-        e = str(kwargs["kwargs"]["e"]).encode()
+        d = str(kwargs["kwargs"]["kwargs"]["d"]).encode()
+        e = str(kwargs["kwargs"]["kwargs"]["e"]).encode()
         with nogil:
             p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
         return p
@@ -129,11 +128,11 @@ class FactorDBFactorizer(BaseClass):
         
         try:
             r = requests.get(self.ENDPOINT, params=payload, timeout=self.timeout)
+            return r.json()
         except requestsTimeoutError:
             raise TimeOutError
         except Exception as e:
             raise e
-        return r.json()
 
     def factorize(self, n, raw_result=False):
         result = self._factorize(n)["factors"]
