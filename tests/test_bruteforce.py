@@ -1,6 +1,6 @@
 import pytest
 from factorizer import BruteForceFactorizer as Factorizer
-from factorizer import TimeOutErrorimport time
+from factorizer import TimeOutError
 
 
 def test_ok_simple_case_timeout_empty():
