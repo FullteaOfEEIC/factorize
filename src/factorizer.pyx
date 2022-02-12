@@ -15,13 +15,22 @@ class BaseClass:
 
     def __init__(self, timeout=None):
         self.DETERMINISTIC = None
-        self.timeout = timeout
+        if timeout is None or timeout<0:
+            self.timeout = None
+        else:
+            self.timeout = timeout
+
         self.result = {}
         
     def factorize(self, n, *args, **kwargs):
+        assert n>=0
+        if n==0:
+            return (0, 0)
+        elif n==1:
+            return (1, 1)
         assert self.DETERMINISTIC is not None
         args = (str(n).encode(),)+args
-        thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize")
+        thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize", daemon=True)
         thread_factorize.start()
         if self.timeout is not None:
             for i in range(self.timeout*100):
@@ -136,6 +145,10 @@ class FactorDBFactorizer(BaseClass):
             raise e
 
     def factorize(self, n, raw_result=False):
+        if n==0:
+            return (0, 0)
+        elif n==1:
+            return (1, 1)
         result = self._factorize(n)["factors"]
         if raw_result:
             return result
