@@ -5,6 +5,7 @@ import glob
 sources = [] 
 sources += glob.glob("src/*.cpp")
 sources += glob.glob("src/*.pyx")
+sources += glob.glob("src/*.pxd")
 
 root_dir = os.path.abspath(os.path.dirname(__file__))
     
@@ -22,7 +23,7 @@ with open(os.path.join(root_dir, 'requirements.txt'), "r") as fp:
 
 setup(
     name = "factorizer",
-    version = "0.9.3",
+    version = "0.9.4",
     author = "Fulltea",
     author_email = "rikuta@furutan.com",
     long_description = long_description,
