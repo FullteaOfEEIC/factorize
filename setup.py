@@ -23,7 +23,7 @@ with open(os.path.join(root_dir, 'requirements.txt'), "r") as fp:
 
 setup(
     name = "factorizer",
-    version = "0.9.5",
+    version = "0.9.6",
     author = "Fulltea",
     author_email = "rikuta@furutan.com",
     long_description = long_description,
