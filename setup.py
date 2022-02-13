@@ -2,9 +2,9 @@ from setuptools import setup, Extension, find_packages
 import os
 import glob
 
-sources = []
-sources += glob.glob("src/*.pyx")  
+sources = [] 
 sources += glob.glob("src/*.cpp")
+sources += glob.glob("src/*.pyx")
     
 ext = Extension("factorizer", 
     sources = sources,
@@ -26,7 +26,7 @@ setup(
     long_description = long_description,
     long_description_content_type="text/markdown",
     url = "https://github.com/FullteaOfEEIC/factorizer",
-    packages = find_packages(where="factorizer"),
+    packages = find_packages(where="src"),
     package_dir = {
         "factorizer": "src"
     },
@@ -36,4 +36,3 @@ setup(
 
 if os.path.exists(os.path.join("src", "factorizer.cpp")):
     os.remove(os.path.join("src", "factorizer.cpp"))
-

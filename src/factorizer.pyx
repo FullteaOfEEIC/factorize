@@ -1,4 +1,3 @@
-import cython
 from libcpp.string cimport string
 import requests
 from requests.exceptions import Timeout as requestsTimeoutError
