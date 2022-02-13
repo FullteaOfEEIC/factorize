@@ -20,7 +20,7 @@ with open("requirements.txt", "r") as fp:
 
 setup(
     name = "factorizer",
-    version = "0.9.1",
+    version = "0.9.2",
     author = "Fulltea",
     author_email = "rikuta@furutan.com",
     long_description = long_description,
