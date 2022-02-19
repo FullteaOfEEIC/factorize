@@ -5,7 +5,6 @@ import glob
 sources = [] 
 sources += glob.glob("src/*.cpp")
 sources += glob.glob("src/*.pyx")
-sources += glob.glob("src/*.pxd")
 
 root_dir = os.path.abspath(os.path.dirname(__file__))
     
