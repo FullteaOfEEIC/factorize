@@ -1,6 +1,6 @@
+#include "utils.hpp"
 #include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
-#include "utils.hpp"
 using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 

@@ -1,4 +1,9 @@
+#ifndef FERMAT_FACTORIZER_HPP_5e84f44f_75b3_4934_801a_f5a8d318cc05
+#define FERMAT_FACTORIZER_HPP_5e84f44f_75b3_4934_801a_f5a8d318cc05
+
 #include <iostream>
 using namespace std;
 
 string FermatFactorizer_cppfunc(string s);
+
+#endif // FERMAT_FACTORIZER_HPP_5e84f44f_75b3_4934_801a_f5a8d318cc05
