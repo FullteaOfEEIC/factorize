@@ -11,8 +11,8 @@ root_dir = os.path.abspath(os.path.dirname(__file__))
 ext = Extension("factorizer", 
     sources = sources,
     language = "c++",
-    extra_compile_args = ["-v", "-std=c++14", "-Wall", "-O3"],
-    extra_link_args = ["-std=c++14"]
+    extra_compile_args = ["-v", "-std=c++14", "-Wall", "-O3", "-Xpreprocessor", "-fopenmp", "-lomp"],
+    extra_link_args = ["-std=c++14", "-lomp"]
 )
 
 with open(os.path.join(root_dir, 'README.md'), "r") as fp:

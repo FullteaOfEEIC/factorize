@@ -1,5 +1,4 @@
 #include "utils.hpp"
-#include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
 using namespace std;
 using Bint = boost::multiprecision::cpp_int;
@@ -29,6 +28,7 @@ string PollardsRhoFactorizer_cppfunc(string s, long c_){
         LinkedList *z2 = new LinkedList;
         y->after = z1;
         z1->after = z2;
+        z2->after = NULL;
         z1->value = f(&(y->value), &c, &n);
         z2->value = f(&(z1->value), &c, &n);
         y = z2;
