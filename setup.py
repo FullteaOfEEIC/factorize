@@ -11,7 +11,7 @@ root_dir = os.path.abspath(os.path.dirname(__file__))
 ext = Extension("factorizer", 
     sources = sources,
     language = "c++",
-    extra_compile_args = ["-v", "-std=c++14", "-Wall", "-O3"],
+    extra_compile_args = ["-v", "-std=c++14", "-Wall", "-O3", "-lboost_system"],
     extra_link_args = ["-std=c++14"]
 )
 

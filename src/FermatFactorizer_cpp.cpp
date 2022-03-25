@@ -1,7 +1,7 @@
 #include "utils.hpp"
 
-#include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/integer.hpp>
 using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
@@ -11,12 +11,12 @@ string FermatFactorizer_cppfunc(string s){
     if(n%2 == 0){
         return "2";
     }
-    Bint x = isqrt(n);
+    Bint x = sqrt(n);
     if(pow(x,2)==n){
         return x.str();
     }
     x+=1;
-    Bint y = isqrt(pow(x,2)-n);
+    Bint y = sqrt(pow(x,2)-n);
     Bint w = pow(x,2)-n-pow(y,2);
     for(;;){
         if(w==0){

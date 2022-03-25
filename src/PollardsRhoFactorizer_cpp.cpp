@@ -1,6 +1,8 @@
 #include "utils.hpp"
+
 #include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/integer.hpp>
 using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
@@ -21,7 +23,7 @@ string PollardsRhoFactorizer_cppfunc(string s, long c_){
     y->value = f(&(x->value), &c, &n);
     x->after = y;
 
-    Bint d = euclidean_gcd(abs(x->value-y->value), n);
+    Bint d = gcd(abs(x->value-y->value), n);
     Bint i=1;
 
     while(d==1){
@@ -35,7 +37,7 @@ string PollardsRhoFactorizer_cppfunc(string s, long c_){
         LinkedList *tmp = x;
         x = x->after;
         delete tmp;
-        d = euclidean_gcd(abs(x->value-y->value), n);
+        d = gcd(abs(x->value-y->value), n);
         i++;
     }
 
