@@ -10,8 +10,8 @@ using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
 
-unsigned long ilog(Bint n){
-    unsigned long result = 0;
+Bint ilog(Bint n){
+    Bint result = ZERO;
     while(n>0){
         n = n/2;
         result++;
@@ -19,6 +19,14 @@ unsigned long ilog(Bint n){
     return result;
 }
 
+Bint ilog(Bint n, Bint const& a){
+    Bint result = ZERO;
+    while(n>0){
+        n = n/a;
+        result++;
+    }
+    return result;
+}
 
 Bint _jacobi_symbol(Bint const& a, Bint const& p){
     if(a==1){ // (11) p43 [Wada 2001]
@@ -68,11 +76,12 @@ Bint jacobi_symbol(Bint const& a, Bint const& p){
 }
 
 
-Bint quadratic_residue(Bint &a, Bint &p){
+Bint quadratic_residue(Bint const& a, Bint const& p){
     // returns x s.t. x^2 ≡ a (mod p)
     
 }
 
+//return first(smallest) prime p s.t. p>=n
 Bint next_prime(Bint const& n){
     if(n<=2){
         return TWO;

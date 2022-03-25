@@ -13,7 +13,6 @@ class TimeOutError(Exception):
 class BaseClass:
 
     def __init__(self, timeout=None):
-        self.DETERMINISTIC = None
         if timeout is None or timeout<0:
             self.timeout = None
         else:
@@ -27,7 +26,8 @@ class BaseClass:
             return (0, 0)
         elif n==1:
             return (1, 1)
-        assert self.DETERMINISTIC is not None
+        elif n%2==0: # some algorithms can't get correct answer for 2(this is a prime) or even numbers.
+            return (2, n//2)
         args = (str(n).encode(),)+args
         thread_factorize = threading.Thread(target=self.factorize_wrap, args=args, kwargs=kwargs, name="_factorize", daemon=True)
         thread_factorize.start()
@@ -49,7 +49,7 @@ class BaseClass:
 
     
     def factorize_wrap(self, n, *args, **kwargs):
-        d = self._factorize(n=n, args=args, kwargs=kwargs)
+        d = self._factorize(n, *args, **kwargs)
         self.result[n] = d
 
     
@@ -61,7 +61,6 @@ class BruteForceFactorizer(BaseClass):
 
     def __init__(self, timeout=None):
         super().__init__(timeout)
-        self.DETERMINISTIC = True
 
     def _factorize(self, string n, *args, **kwargs):
         cdef:
@@ -75,7 +74,6 @@ class FermatFactorizer(BaseClass):
 
     def __init__(self, timeout=None):
         super().__init__(timeout)
-        self.DETERMINISTIC = True
 
     def _factorize(self, string n, *args, **kwargs):
         cdef:
@@ -89,7 +87,6 @@ class PollardsRhoFactorizer(BaseClass):
 
     def __init__(self, c=1, timeout=None):
         super().__init__(timeout)
-        self.DETERMINISTIC = False
         self.c = c
 
     def _factorize(self, string n, *args, **kwargs):
@@ -102,22 +99,45 @@ class PollardsRhoFactorizer(BaseClass):
         return d
 
 
+class PminusOneFactorizer(BaseClass):
+
+    def __init__(self, step=1, timeout=None):
+        assert int(step) in (1,2)
+        super().__init__(timeout)
+        self.step = int(step)
+    
+    def factorize(self, n, M=100000, *args, **kwargs):
+        assert M<ULONG_MAX
+        return super().factorize(n, M, *args, **kwargs)
+    
+    def _factorize(self, string n, unsigned long M, *args, **kwargs):
+        cdef:
+            string d
+        if self.step==1:
+            while True:
+                with nogil:
+                    d = PminusOneFactorizer_step1_cppfunc(n, M)
+                if d!=n:
+                    return d
+                else:
+                    M = M//2
+
+        else:
+            with nogil:
+                d = PminusOneFactorizer_step2_cppfunc(n, M)
+        return d
+
 class RSAPrivateKeyFactorizer(BaseClass):
 
     def __init__(self, timeout=None):
         super().__init__(timeout)
-        self.DETERMINISTIC = False
 
     def factorize(self, n, d, e=65537, *args, **kwargs):
-        kwargs["d"] = d
-        kwargs["e"] = e
-        return super().factorize(n=n, args=args, kwargs=kwargs)
+        return super().factorize(n, str(d).encode(), str(e).encode(), *args, **kwargs)
 
-    def _factorize(self, string n, *args, **kwargs):
+    def _factorize(self, string n, string d, string e, *args, **kwargs):
         cdef:
-            string p, d, e
-        d = str(kwargs["kwargs"]["kwargs"]["d"]).encode()
-        e = str(kwargs["kwargs"]["kwargs"]["e"]).encode()
+            string p
         with nogil:
             p = RSAPrivateKeyFactorizer_cppfunc(n, d, e)
         return p
@@ -128,7 +148,6 @@ class FactorDBFactorizer(BaseClass):
     
     def __init__(self, timeout=None):
         super().__init__(timeout)
-        self.DETERMINISTIC = False
         self.ENDPOINT = "http://factordb.com/api"
 
     
@@ -153,13 +172,8 @@ class FactorDBFactorizer(BaseClass):
             return result
         
         if len(result)==1 and result[0][1]==1:
-            return (1,n)
+            return (1, n)
         else:
             d = int(result[0][0])
             assert d*(n//d) == n
             return (d, n//d)
-        
-
-
-
-

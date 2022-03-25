@@ -4,9 +4,14 @@
 #include <boost/multiprecision/cpp_int.hpp>
 using Bint = boost::multiprecision::cpp_int;
 
-unsigned long ilog(Bint n);
+Bint ilog(Bint n);
+Bint ilog(Bint n, Bint const& a);
 
-Bint jacobi_symbol(Bint a, Bint p);
+//returns (a/p)
+//https://en.wikipedia.org/wiki/Jacobi_symbol
+Bint jacobi_symbol(Bint const& a, Bint const& p);
+
+//return first(smallest) prime p s.t. p>=n
 Bint next_prime(Bint n);
 
 #define ZERO Bint("0")

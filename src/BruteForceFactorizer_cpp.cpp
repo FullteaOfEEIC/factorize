@@ -1,6 +1,5 @@
 #include "utils.hpp"
 
-#include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/integer.hpp>
 using namespace std;
