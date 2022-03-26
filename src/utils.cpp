@@ -91,10 +91,8 @@ Bint next_prime(Bint const& n){
         retval++;
     }
     while(true){
-        if(boost::multiprecision::miller_rabin_test(retval, 4)){
-            if(boost::multiprecision::miller_rabin_test(retval, 10)){
-                return retval;
-            }
+        if(boost::multiprecision::miller_rabin_test(retval, 25)){
+            return retval;
         }
         retval+=2;
     }
