@@ -117,9 +117,9 @@ class PminusOneFactorizer(BaseClass):
             while True:
                 with nogil:
                     d = PminusOneFactorizer_step1_cppfunc(n, M)
-                if d!=n:
+                if d!=n: #If d!=1 and d!=n, then that is a factor. If d==1, maybe trying bigger M makes good result.
                     return d
-                else:
+                else: #d==n. In this case, mostly M is too big. try smaller M.
                     M = M//2
 
         else:
