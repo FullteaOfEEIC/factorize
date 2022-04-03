@@ -1,44 +1,64 @@
 #include "utils.hpp"
 
-#include <iostream>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/integer.hpp>
+#include <memory>
 using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
-Bint f(Bint *x, Bint *c, Bint *n);
-struct LinkedList{
-    Bint value;
-    LinkedList *after;
-}typedef LinkedList;
+Bint f(Bint const& x, Bint const& c, Bint const& n);
+
+
+class LinkedList{
+    public:
+        LinkedList(Bint value_);
+        ~LinkedList();
+        Bint getValue();
+        LinkedList* getAfter();
+        void setAfter(LinkedList* after_);
+    private:
+        Bint value;
+        LinkedList* after;
+};
+
+LinkedList::LinkedList(Bint value_){
+    value = value_;
+    after = nullptr;
+}
+
+LinkedList::~LinkedList(){
+    ;
+}
+
+Bint LinkedList::getValue(){
+    return value;
+}
+
+LinkedList* LinkedList::getAfter(){
+    return after;
+}
+
+void LinkedList::setAfter(LinkedList* after_){
+    after = after_;
+}
+
 
 
 string PollardsRhoFactorizer_cppfunc(string s, long c_){
     Bint n(s);
     Bint c(c_);
-    LinkedList z1, z2;
-    LinkedList *x = new LinkedList;
-    LinkedList *y = new LinkedList;
-    x->value = 2;
-    y->value = f(&(x->value), &c, &n);
-    x->after = y;
-
-    Bint d = gcd(abs(x->value-y->value), n);
-    Bint i=1;
-
+    LinkedList* x = new LinkedList(Bint(2));
+    LinkedList* y = new LinkedList(f(x->getValue(), c, n));
+    x->setAfter(y);
+    Bint d = gcd(abs(x->getValue()-y->getValue()), n);
     while(d==1){
-        LinkedList *z1 = new LinkedList;
-        LinkedList *z2 = new LinkedList;
-        y->after = z1;
-        z1->after = z2;
-        z1->value = f(&(y->value), &c, &n);
-        z2->value = f(&(z1->value), &c, &n);
+        LinkedList* z1 = new LinkedList(f(y->getValue(), c, n));
+        LinkedList* z2 = new LinkedList(f(z1->getValue(), c, n));
+        y->setAfter(z1);
+        z1->setAfter(z2);
         y = z2;
-        LinkedList *tmp = x;
-        x = x->after;
-        delete tmp;
-        d = gcd(abs(x->value-y->value), n);
-        i++;
+        x = x->getAfter();
+        d = gcd(abs(x->getValue()-y->getValue()), n);
     }
 
 
@@ -50,6 +70,6 @@ string PollardsRhoFactorizer_cppfunc(string s, long c_){
     }
 }
 
-Bint f(Bint *x, Bint *c, Bint *n){
-    return (boost::multiprecision::pow(*x,(unsigned)2)+*c)%(*n);
+Bint f(Bint const& x, Bint const& c, Bint const& n){
+    return (x*x+c)%n;
 }
