@@ -18,7 +18,7 @@ cdef extern from "PminusOneFactorizer_cpp.hpp":
     string PminusOneFactorizer_step1_cppfunc(string s, unsigned long M) nogil
 
 cdef extern from "PminusOneFactorizer_cpp.hpp":
-    string PminusOneFactorizer_step2_cppfunc(string s, unsigned long M) nogil
+    string PminusOneFactorizer_step2_cppfunc(string s, unsigned long M, unsigned long L) nogil
 
 cdef extern from "RSAPrivateKeyFactorizer_cpp.hpp":
     string RSAPrivateKeyFactorizer_cppfunc(string s, string d, string e) nogil

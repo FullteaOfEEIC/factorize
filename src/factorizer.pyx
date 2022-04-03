@@ -106,11 +106,14 @@ class PminusOneFactorizer(BaseClass):
         super().__init__(timeout)
         self.step = int(step)
     
-    def factorize(self, n, M=100000, *args, **kwargs):
+    def factorize(self, n, M=100000, L=1000000, *args, **kwargs):
         assert M<ULONG_MAX
-        return super().factorize(n, M, *args, **kwargs)
+        if self.step==2:
+            assert L<ULONG_MAX
+            assert M<L
+        return super().factorize(n, M, L, *args, **kwargs)
     
-    def _factorize(self, string n, unsigned long M, *args, **kwargs):
+    def _factorize(self, string n, unsigned long M, unsigned long L, *args, **kwargs):
         cdef:
             string d
         if self.step==1:
@@ -124,7 +127,7 @@ class PminusOneFactorizer(BaseClass):
 
         else:
             with nogil:
-                d = PminusOneFactorizer_step2_cppfunc(n, M)
+                d = PminusOneFactorizer_step2_cppfunc(n, M, L)
         return d
 
 class RSAPrivateKeyFactorizer(BaseClass):
