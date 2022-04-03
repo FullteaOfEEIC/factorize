@@ -57,7 +57,11 @@ string PollardsRhoFactorizer_cppfunc(string s, long c_){
         y->setAfter(z1);
         z1->setAfter(z2);
         y = z2;
+
+        LinkedList* tmp;
+        tmp = x;
         x = x->getAfter();
+        delete tmp;
         d = gcd(abs(x->getValue()-y->getValue()), n);
     }
 
