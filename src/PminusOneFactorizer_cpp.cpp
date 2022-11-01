@@ -5,14 +5,13 @@
 #include <vector>
 #include <cmath>
 #include <iostream>
-using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
 //return f s.t. q^f<M<=q^(f+1)
 unsigned long get_f(unsigned long q, unsigned long M);
-vector<unsigned long> generate_primes(unsigned long MAX);
+std::vector<unsigned long> generate_primes(unsigned long MAX);
 
-string PminusOneFactorizer_step1_cppfunc(string s, unsigned long M){
+std::string PminusOneFactorizer_step1_cppfunc(std::string s, unsigned long M){
     Bint n(s);
     Bint A("2");
     if(n%A==0){
@@ -27,7 +26,7 @@ string PminusOneFactorizer_step1_cppfunc(string s, unsigned long M){
     return retval.str();
 }
 
-string PminusOneFactorizer_step2_cppfunc(string s, unsigned long M, unsigned long L){
+std::string PminusOneFactorizer_step2_cppfunc(std::string s, unsigned long M, unsigned long L){
     Bint n(s);
     Bint A("2");
     if(n%A==0){
@@ -62,11 +61,11 @@ unsigned long get_f(unsigned long q, unsigned long M){
     }
 }
 
-vector<unsigned long> generate_primes(unsigned long MAX){ // we have to make this more smart...
-    vector<bool> v(MAX+1, true);
+std::vector<unsigned long> generate_primes(unsigned long MAX){ // we have to make this more smart...
+    std::vector<bool> v(MAX+1, true);
     v.at(0) = false;
     v.at(1) = false;
-    vector<unsigned long> retval;
+    std::vector<unsigned long> retval;
     retval.clear();
     unsigned long sqrt_MAX = (unsigned long)sqrt(MAX);
     for(unsigned long i=2;i<=MAX;i++){

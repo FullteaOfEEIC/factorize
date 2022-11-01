@@ -2,11 +2,10 @@
 
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/integer.hpp>
-using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
 
-string FermatFactorizer_cppfunc(string s){
+std::string FermatFactorizer_cppfunc(std::string s){
     Bint n(s);
     if(n%2 == 0){
         return "2";

@@ -3,7 +3,6 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/integer.hpp>
 #include <memory>
-using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
 Bint f(Bint const& x, Bint const& c, Bint const& n);
@@ -44,7 +43,7 @@ void LinkedList::setAfter(LinkedList* after_){
 
 
 
-string PollardsRhoFactorizer_cppfunc(string s, long c_){
+std::string PollardsRhoFactorizer_cppfunc(std::string s, long c_){
     Bint n(s);
     Bint c(c_);
     LinkedList* x = new LinkedList(Bint(2));

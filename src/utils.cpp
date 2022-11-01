@@ -6,7 +6,6 @@
 #include <cmath>
 #include <cassert>
 
-using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
 

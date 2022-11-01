@@ -3,10 +3,9 @@
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/random.hpp>
 #include <cmath>
-using namespace std;
 using Bint = boost::multiprecision::cpp_int;
 
-string RSAPrivateKeyFactorizer_cppfunc(string s, string d_, string e_){
+std::string RSAPrivateKeyFactorizer_cppfunc(std::string s, std::string d_, std::string e_){
     Bint n(s);
     Bint d(d_);
     Bint e(e_);
@@ -37,5 +36,4 @@ string RSAPrivateKeyFactorizer_cppfunc(string s, string d_, string e_){
     }
     Bint retval =  gcd(c1-1, n);
     return retval.str();
-    
 }
